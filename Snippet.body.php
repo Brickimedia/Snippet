@@ -3,7 +3,7 @@
 /**
  * Class for static functions
  */
-class BricksetSnippet {
+class Snippet {
 
 	/**
 	 * Parse wikitext into raw paragraph

@@ -2,16 +2,16 @@
 
 $wgExtensionCredits['api'][] = array(
 	'path' => __FILE__,
-	'name' => 'BricksetSnippet',
-	'descriptionmsg' => 'bricksetsnippet-desc',
+	'name' => 'Snippet',
+	'descriptionmsg' => 'snippet-desc',
 	'version' => '1.0',
 	'author' => 'UltrasonicNXT/Adam Carter',
-	'url' => 'https://github.com/Brickimedia/BricksetSnippet',
+	'url' => 'https://github.com/Brickimedia/Snippet',
 );
 
-$wgAutoloadClasses['BricksetSnippetAPI'] = __DIR__ . '/BricksetSnippet.api.php';
-$wgAutoloadClasses['BricksetSnippet'] = __DIR__ . '/BricksetSnippet.body.php';
+$wgAutoloadClasses['SnippetAPI'] = __DIR__ . '/Snippet.api.php';
+$wgAutoloadClasses['Snippet'] = __DIR__ . '/Snippet.body.php';
 
-$wgAPIModules['bricksetsnippet'] = 'BricksetSnippetAPI';
+$wgAPIModules['snippet'] = 'SnippetAPI';
 
-$wgExtensionMessagesFiles['BricksetSnippet'] = __DIR__ . '/BricksetSnippet.i18n.php';
+$wgExtensionMessagesFiles['Snippet'] = __DIR__ . '/Snippet.i18n.php';

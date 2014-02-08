@@ -1,18 +1,18 @@
 <?php
 
-class BricksetSnippetAPI extends ApiBase {
+class SnippetAPI extends ApiBase {
 
 	public function execute() {
 		$set = $this->getMain()->getVal('set');
 
-		$title = BricksetSnippet::getTitle( $set );
+		$title = Snippet::getTitle( $set );
 
 		if ( $title ) {
 
 			$page = new WikiPage( $title );
 			$content = $page->getContent()->getNativeData();
 
-			$snippet = BricksetSnippet::parseText( $content );
+			$snippet = Snippet::parseText( $content );
 
 			$result = array(
 				'url' => $title->getFullURL(),
@@ -26,7 +26,7 @@ class BricksetSnippetAPI extends ApiBase {
 	}
 
 	public function getDescription() {
-		return 'An API action returning a snippet of a page from a Brickset search.';
+		return 'An API action returning a snippet of a page from a search.';
 	}
 
 	public function getAllowedParams() {
@@ -46,7 +46,7 @@ class BricksetSnippetAPI extends ApiBase {
 
 	public function getExamples() {
 		return array(
-				'api.php?action=bricksetsnippet&set=7965-1:%20Millennium%20Falcon' => 'Get the description for 7965-1: Millennium Falcon'
+				'api.php?action=snippet&set=7965-1:%20Millennium%20Falcon' => 'Get the description for 7965-1: Millennium Falcon'
 		);
 	}
 }
