@@ -3,12 +3,9 @@
 class BricksetSnippetAPI extends ApiBase {
 
 	public function execute() {
-		$id = $this->getMain()->getVal('id');
-		$name = $this->getMain()->getVal('name');
+		$set = $this->getMain()->getVal('set');
 
-		$title = BricksetSnippet::getTitle( $id, $name );
-
-		$title = Title::newFromText( '7965 Millennium Falcon' );
+		$title = BricksetSnippet::getTitle( $set );
 
 		if ( $title ) {
 
@@ -34,11 +31,7 @@ class BricksetSnippetAPI extends ApiBase {
 
 	public function getAllowedParams() {
 		return array(
-				'id' => array (
-						ApiBase::PARAM_TYPE => 'string',
-						ApiBase::PARAM_REQUIRED => true
-				),
-				'name' => array (
+				'set' => array (
 						ApiBase::PARAM_TYPE => 'string',
 						ApiBase::PARAM_REQUIRED => true
 				),
@@ -47,14 +40,13 @@ class BricksetSnippetAPI extends ApiBase {
 
 	public function getParamDescription() {
 		return array(
-				'id' => 'The ID of the set to return',
-				'name' => 'The name of the set to return'
+				'set' => 'The set to search for',
 		);
 	}
 
 	public function getExamples() {
 		return array(
-				'api.php?action=bricksetsnippet&id=4346&name=Robo_Pod&format=xml' => 'Get the description for 4346 Robo Pod'
+				'api.php?action=bricksetsnippet&set=7965-1:%20Millennium%20Falcon' => 'Get the description for 7965-1: Millennium Falcon'
 		);
 	}
 }

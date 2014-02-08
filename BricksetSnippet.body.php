@@ -35,11 +35,19 @@ class BricksetSnippet {
 	/**
 	 * Get the title object for the given search data, or false if none found
 	 *
-	 * @param String $id: id of article to find
-	 * @param String $name: name of article to find
+	 * @param String $search: article to search for
 	 * @return Title|boolean: title if found OR false if none found
 	 */
-	static function getTitle( $id, $name ) {
+	static function getTitle( $search ) {
 
+		$engine = SearchEngine::create();
+		$results = $engine->searchTitle( $search );
+
+		if ( $results->numRows() ) {
+			$result = $results->next();
+			return $result->getTitle();
+		} else {
+			return false;
+		}
 	}
 }
