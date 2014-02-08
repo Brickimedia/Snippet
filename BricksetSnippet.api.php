@@ -6,12 +6,24 @@ class BricksetSnippetAPI extends ApiBase {
 		$id = $this->getMain()->getVal('id');
 		$name = $this->getMain()->getVal('name');
 
-		$result = array(
-			'url' => '',
-			'snippet' => '',
-		);
+		$title = BricksetSnippet::getTitle( $id, $name );
 
-		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+		$title = Title::newFromText( '7965 Millennium Falcon' );
+
+		if ( $title ) {
+
+			$page = new WikiPage( $title );
+			$content = $page->getContent()->getNativeData();
+
+			$snippet = BricksetSnippet::parseText( $content );
+
+			$result = array(
+				'url' => $title->getFullURL(),
+				'snippet' => $snippet,
+			);
+
+			$this->getResult()->addValue( null, $this->getModuleName(), $result );
+		}
 
 		return true;
 	}
@@ -21,7 +33,7 @@ class BricksetSnippetAPI extends ApiBase {
 	}
 
 	public function getAllowedParams() {
-		return array_merge( parent::getAllowedParams(), array(
+		return array(
 				'id' => array (
 						ApiBase::PARAM_TYPE => 'string',
 						ApiBase::PARAM_REQUIRED => true
@@ -30,14 +42,14 @@ class BricksetSnippetAPI extends ApiBase {
 						ApiBase::PARAM_TYPE => 'string',
 						ApiBase::PARAM_REQUIRED => true
 				),
-		) );
+		);
 	}
 
 	public function getParamDescription() {
-		return array_merge( parent::getParamDescription(), array(
+		return array(
 				'id' => 'The ID of the set to return',
 				'name' => 'The name of the set to return'
-		) );
+		);
 	}
 
 	public function getExamples() {

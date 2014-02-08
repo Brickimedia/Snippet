@@ -10,7 +10,8 @@ $wgExtensionCredits['api'][] = array(
 );
 
 $wgAutoloadClasses['BricksetSnippetAPI'] = __DIR__ . '/BricksetSnippet.api.php';
+$wgAutoloadClasses['BricksetSnippet'] = __DIR__ . '/BricksetSnippet.body.php';
 
 $wgAPIModules['bricksetsnippet'] = 'BricksetSnippetAPI';
 
-$wgExtensionMessagesFiles['myextension'] = __DIR__ . '/BricksetSnippet.i18n.php';
+$wgExtensionMessagesFiles['BricksetSnippet'] = __DIR__ . '/BricksetSnippet.i18n.php';
