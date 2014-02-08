@@ -15,3 +15,5 @@ $wgAutoloadClasses['Snippet'] = __DIR__ . '/Snippet.body.php';
 $wgAPIModules['snippet'] = 'SnippetAPI';
 
 $wgExtensionMessagesFiles['Snippet'] = __DIR__ . '/Snippet.i18n.php';
+
+$wgSnippetMaxLength = 600;

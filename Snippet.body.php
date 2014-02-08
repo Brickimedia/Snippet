@@ -12,6 +12,8 @@ class Snippet {
 	 * @return String: processed text
 	 */
 	static function parseText( $text ) {
+		global $wgSnippetMaxLength;
+
 		$parts = explode( '==', $text );
 		$text = $parts[0]; // remove anything after the first heading
 
@@ -26,6 +28,12 @@ class Snippet {
 		$text = preg_replace( '/{{[^{]+?}}/', '', $text ); // remove 3rd layer templates
 		$text = preg_replace( '/{{[^{]+?}}/', '', $text ); // remove 2nd layer templates
 		$text = preg_replace( '/{{[^{]+?}}/', '', $text ); // remove 1st layer templates
+
+		$text = substr( $text, 0, $wgSnippetMaxLength ); // limit to $wgSnippetMaxLength chars
+
+		$parts = explode( '.', $text );
+		array_pop( $parts ); // remove anything after the last full stop
+		$text = implode( '.', $parts ) . '.';
 
 		$text = trim( $text );
 
