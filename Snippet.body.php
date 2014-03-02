@@ -49,6 +49,7 @@ class Snippet {
 	static function getTitle( $search ) {
 
 		$engine = SearchEngine::create();
+		$engine->setLimitOffset( 1, 0 );
 		$results = $engine->searchTitle( $search );
 
 		if ( $results->numRows() ) {
