@@ -4,7 +4,7 @@ $wgExtensionCredits['api'][] = array(
 	'path' => __FILE__,
 	'name' => 'Snippet',
 	'descriptionmsg' => 'snippet-desc',
-	'version' => '1.1',
+	'version' => '1.2',
 	'author' => 'UltrasonicNXT/Adam Carter',
 	'url' => 'https://github.com/Brickimedia/Snippet',
 );
