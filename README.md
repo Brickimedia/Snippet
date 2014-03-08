@@ -1,4 +1,4 @@
-BricksetSnippet
+Snippet
 ===============
 
-MediaWiki extension BricksetSnippet, for getting a plaintext snippet of the article for a given search term from BrickSet
+MediaWiki extension Snippet, for getting a plaintext snippet of the article for a given search term from the API.
