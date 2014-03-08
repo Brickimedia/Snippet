@@ -54,7 +54,13 @@ class Snippet {
 
 		if ( $results->numRows() ) {
 			$result = $results->next();
-			return $result->getTitle();
+			$title = $result->getTitle();
+			if ( $title->isRedirect() ) {
+				$page = WikiPage::factory( $title );
+				$content = $page->getContent( Revision::FOR_PUBLIC );
+				$title = $content->getUltimateRedirectTarget();
+			}
+			return $title;
 		} else {
 			return false;
 		}
