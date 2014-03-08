@@ -23,6 +23,8 @@ class Snippet {
 		$text = preg_replace( '/\[\[([^|]+?)\]\]/', '$1', $text ); // remove non-piped links
 		$text = preg_replace( '/\[\[[^|\n]+?\|([^|\n]+?)\]\]/', '$1', $text ); // remove piped links
 
+		$text = preg_replace( '/<ref>.+?</ref>/', '', $text ); // remove <ref> tags
+
 		$text = preg_replace( '/<.+?>/', '', $text ); // remove html elements
 
 		$text = preg_replace( '/{{[^{]+?}}/', '', $text ); // remove 3rd layer templates
