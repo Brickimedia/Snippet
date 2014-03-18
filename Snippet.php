@@ -6,7 +6,7 @@ $wgExtensionCredits['api'][] = array(
 	'descriptionmsg' => 'snippet-desc',
 	'version' => '1.2.1',
 	'author' => 'UltrasonicNXT/Adam Carter',
-	'url' => 'https://github.com/Brickimedia/Snippet',
+	'url' => '//github.com/Brickimedia/Snippet',
 );
 
 $wgAutoloadClasses['SnippetAPI'] = __DIR__ . '/Snippet.api.php';
